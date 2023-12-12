@@ -77,9 +77,11 @@
                             <p class="text-xl text-gray-700 font-bold mb-2">{{$car->brand}} | {{$car->model}} </p>
                             <p class="text-base text-gray-400 font-normal">{{$car->type}} | {{$car->year}} released | {{$car->capacity}} seater</p>
                         </div>
-                        <div class="flex px-10 mb-2 justify-center">
-                            <a href="/rent/create/{{$car->id}}" class="flex items-center justify-center w-full h-12 px-6 text-m uppercase bg-green-400 rounded-lg hover:bg-green-500">Rent Car now</a>
-                        </div>
+                        @if(auth()->user()->hasRole('customer'))
+                            <div class="flex px-10 mb-2 justify-center">
+                                <a href="/rent/create/{{$car->id}}" class="flex items-center justify-center w-full h-12 px-6 text-m uppercase bg-green-400 rounded-lg hover:bg-green-500">Rent Car now</a>
+                            </div>
+                        @endif
                     </div>
                 @endforeach
 

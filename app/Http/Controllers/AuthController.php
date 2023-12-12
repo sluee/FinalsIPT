@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Jobs\CustomerJob;
 use App\Jobs\UserJob;
+use App\Models\Car;
 use App\Models\Customer;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -114,10 +115,11 @@ class AuthController extends Controller
     public function dashboard(){
 
         $currentUser = Auth::user(); // Retrieve the currently logged-in user
-        $registeredUsers = User::all();
+        $registeredUsers = User::all()->count();
+        $allCars = Car::all()->count();
 
 
-        return view('dashboard', compact('currentUser', 'registeredUsers'));
+        return view('dashboard', compact('currentUser', 'registeredUsers','allCars'));
     }
 
     public function logout(Request $request) {

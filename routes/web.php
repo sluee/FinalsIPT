@@ -53,6 +53,9 @@ Route::middleware(['auth', 'verified'])->group(function(){
     Route::put('/rent/{rent}', [RentalController::class, 'update'])->name('rent.update');
     Route::delete('/rent/{rent}', [RentalController::class, 'destroy'])->name('rent.delete');
 
+    Route::post('/rent/accept/{rental}', [RentalController::class, 'accept']);
+    Route::post('/rent/declined/{rental}', [RentalController::class, 'decline']);
+
     Route::get('/customers',[CustomerController::class, 'index']);
     Route::get('/customers/create', [CustomerController::class, 'create']);
     Route::post('/customers', [CustomerController::class, 'store'])->name('customer.store');

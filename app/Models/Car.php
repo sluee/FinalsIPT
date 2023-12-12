@@ -11,10 +11,14 @@ class Car extends Model
 
     protected $guarded =[];
 
-   // In the Car model
-public function rentals()
-{
-    return $this->hasMany(Rental::class);
-}
+    // In the Car model
+    public function rentals()
+    {
+        return $this->hasMany(Rental::class);
+    }
 
+    public function getCarDataById($carId) {
+        // Retrieve car data from the database
+        return self::where('id', $carId)->first();
+    }
 }

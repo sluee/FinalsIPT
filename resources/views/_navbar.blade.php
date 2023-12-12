@@ -46,6 +46,7 @@
                 </div>
 
                 <div class="flex justify-end items-center relative">
+
                     <form action="{{url('/logout')}}" method="POST" class="inline-block py-2 px-3 hover:bg-green-400 rounded-full">
                         {{csrf_field()}}
                         <button class="flex items-center relative  text-white cursor-pointer whitespace-nowrap"  type="submit">Logout</button>
